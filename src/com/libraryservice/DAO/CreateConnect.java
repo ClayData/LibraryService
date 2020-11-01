@@ -10,7 +10,8 @@ public class CreateConnect {
 		Connection con = null;
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			con = DriverManager.getConnection("database-2.cz8yphudm026.us-east-2.rds.amazonaws.com", "admin", "chickentender");
+			con = DriverManager.getConnection("jdbc:oracle:thin:@database-2.cz8yphudm026.us-east-2.rds.amazonaws.com:1521:orcl", "admin", "chickentender");
+			System.out.println("Connection created....");
 			
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -18,13 +19,5 @@ public class CreateConnect {
 			e.printStackTrace();
 		}
 		return con;
-	}
-	
-	public void closeConnection(Connection con) {
-		try {
-			con.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
 	}
 }

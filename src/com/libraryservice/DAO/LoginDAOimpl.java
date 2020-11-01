@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class LoginDAOimpl {
 	
@@ -12,20 +13,32 @@ public class LoginDAOimpl {
 		Connection con = cc.makeConnection();
 		String resname = "";
 		try {
-			PreparedStatement pre = con.prepareStatement("select name from users where name = ? AND password = ?");
+//			con.setAutoCommit(false);
+			
+			PreparedStatement pre = con.prepareStatement("select book_priv from users where name = ? AND password = ?");
 			pre.setString(1, name);
 			pre.setString(2, password);
 			ResultSet rs = pre.executeQuery();
 			while(rs.next()) {
-				resname = rs.getNString(1);
+				resname = rs.getString(1);
 			}
-			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			cc.closeConnection(con);
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return resname;
+	}
+	
+	public static void main(String[] args) {
+		LoginDAOimpl li = new LoginDAOimpl();
+		String name = "clay_admin";
+		String p = "admin";
+		String ret = li.getUser(name.toLowerCase(), p.toLowerCase());
+		System.out.println(ret);
 	}
 }

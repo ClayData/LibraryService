@@ -15,7 +15,7 @@ public class RegistrationDAOImpl {
 		Connection con = cc.makeConnection();
 		
 		try {
-			PreparedStatement pre = con.prepareStatement("insert into users values ?,?,?,?");
+			PreparedStatement pre = con.prepareStatement("insert into users values (?,?,?,?)");
 			pre.setString(1, obj.getName());
 			pre.setString(2, obj.getPassword());
 			pre.setString(3, obj.getBookPriv());
@@ -25,7 +25,12 @@ public class RegistrationDAOImpl {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			cc.closeConnection(con);
+			try {
+				con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 }

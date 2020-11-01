@@ -7,6 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<form action="addbook" method="post">
+	Enter Book Title:<input type="text" name="addtitle"/><br />
+	Enter Author Name:<input type="text" name="author" /><br />
+	<input type="submit" value="submit" />
+	</form>
+	<br/>
+	<form action="deletebook" method="post">
+	Enter Title of Book to be deleted:<input type="text" name="deltitle" />
+	<input type="submit" value="submit" />
+	</form>
+	
 </body>
 </html>
