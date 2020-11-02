@@ -30,6 +30,7 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("libname", name);
 			RequestDispatcher rd = req.getRequestDispatcher("/book.jsp");
 			rd.forward(req, res);
+			out.print("<h3>" + name + "</h3>");
 		} else if (bookpriv.equals("no")){
 			System.out.println("going to register...");
 			HttpSession session = req.getSession();

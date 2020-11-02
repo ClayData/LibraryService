@@ -7,6 +7,10 @@
 <title>Book Delete</title>
 </head>
 <body>
+	<button><a href="login.jsp">Log Out</a></button>
+	<% String user = (String)session.getAttribute("libname");
+	out.print(user);
+	%>
 	<form action="bookdel" method="post">
 	Enter Book Title:<input type="text" name="deltitle"/><br />
 	<input type="submit" value="submit" />

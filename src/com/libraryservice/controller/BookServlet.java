@@ -24,6 +24,7 @@ public class BookServlet extends HttpServlet{
 		HttpSession session = req.getSession();
 		String libname = (String) session.getAttribute("libname");
 		
+		
 		String addtitle = req.getParameter("addtitle");
 		String author = req.getParameter("author");
 		String delname = req.getParameter("deltitle");
