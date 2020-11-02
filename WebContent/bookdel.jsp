@@ -4,13 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Book Delete</title>
 </head>
 <body>
-<form action="register" method="post">
-Enter Name:<input type="text" name="username"/><br><br>
-Enter Password:<input type="password" name="pass"/> <br><br>
-<input type="submit" value="register" />
-</form>
+	<form action="bookdel" method="post">
+	Enter Book Title:<input type="text" name="deltitle"/><br />
+	<input type="submit" value="submit" />
+	</form>
+	<br/>
+	<a href="book.jsp">Add Books</a>
 </body>
 </html>

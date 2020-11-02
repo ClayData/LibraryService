@@ -3,6 +3,7 @@ package com.libraryservice.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,21 +21,19 @@ public class BookServlet extends HttpServlet{
 		res.setContentType("text/html");
 		PrintWriter out=res.getWriter();
 		
-		
 		HttpSession session = req.getSession();
 		String libname = (String) session.getAttribute("libname");
 		
-		String addname = req.getParameter("addname");
+		String addtitle = req.getParameter("addtitle");
 		String author = req.getParameter("author");
-		if(addname.length() > 0 && author.length() > 0) {
-			BookDAOimpl bd = new BookDAOimpl();
-			bd.addBook(addname, author);
-			out.print("Book Added");
-		} 
 		String delname = req.getParameter("deltitle");
-		if(delname.length() > 0) {
+		if(addtitle.length() > 0 && author.length() > 0) {
 			BookDAOimpl bd = new BookDAOimpl();
-			bd.deleteBook(delname);
-		}
+			bd.addBook(addtitle.toLowerCase(), author.toLowerCase());
+			System.out.print("Book Added");
+			RequestDispatcher rd = req.getRequestDispatcher("/book.jsp");
+			rd.forward(req, res);
+		} 
+		
 	}
 }

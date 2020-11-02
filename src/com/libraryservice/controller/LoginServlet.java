@@ -28,15 +28,17 @@ public class LoginServlet extends HttpServlet {
 		if(bookpriv.equals("yes")) {
 			HttpSession session = req.getSession();
 			session.setAttribute("libname", name);
-			RequestDispatcher rd = req.getRequestDispatcher("book");
+			RequestDispatcher rd = req.getRequestDispatcher("/book.jsp");
 			rd.forward(req, res);
 		} else if (bookpriv.equals("no")){
+			System.out.println("going to register...");
 			HttpSession session = req.getSession();
 			session.setAttribute("adminname", name);
-			RequestDispatcher rd = req.getRequestDispatcher("register");
+			RequestDispatcher rd = req.getRequestDispatcher("/register.jsp");
+			rd.forward(req, res);
 		} else {
 			out.print("Invalid username/password");
-			RequestDispatcher rd = req.getRequestDispatcher("index");
+			RequestDispatcher rd = req.getRequestDispatcher("/index.jsp");
 			rd.forward(req, res);
 		}
 	}
