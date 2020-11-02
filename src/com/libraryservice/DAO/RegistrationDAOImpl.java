@@ -3,6 +3,7 @@ package com.libraryservice.DAO;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
@@ -32,5 +33,29 @@ public class RegistrationDAOImpl {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	public String getLibrarians() {
+		CreateConnect cc = new CreateConnect();
+		Connection con = cc.makeConnection();
+		String res = "";
+		try {
+			PreparedStatement pre = con.prepareStatement("select name from users where book_priv = yes");
+			ResultSet rs = pre.executeQuery();
+			while(rs.next()) {
+				res += rs.getString(1) + ";";
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return res;
 	}
 }

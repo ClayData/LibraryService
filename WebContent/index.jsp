@@ -8,6 +8,5 @@
 </head>
 <body>
 <a href="login.jsp">Log In</a><br>
-<a href="register.jsp">Register</a>
 </body>
 </html>

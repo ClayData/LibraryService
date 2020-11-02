@@ -7,12 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="register" method="post">
-Enter Name:<input type="text" name="username"/><br><br>
-Enter Password:<input type="password" name="pass"/> <br><br>
-<input type="submit" value="register" />
-<br />
-<a href="view">View Librarians</a>
-</form>
+	<a href="register.jsp">Add Librarians</a>
 </body>
 </html>

@@ -7,7 +7,9 @@
 <title>Book Delete</title>
 </head>
 <body>
-	<button><a href="login.jsp">Log Out</a></button>
+	<form action="bookdel" method="post">
+		<input type="submit" name="logout1" value="Log Out"/>
+	</form>
 	<% String user = (String)session.getAttribute("libname");
 	out.print(user);
 	%>

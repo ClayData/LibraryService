@@ -20,6 +20,12 @@ public class BookDelServlet extends HttpServlet{
 			res.setContentType("text/html");
 			PrintWriter out=res.getWriter();
 			String delname = req.getParameter("deltitle");
+		if(req.getParameter("logout1") != null) {
+			
+			RequestDispatcher rd = req.getRequestDispatcher("/index.jsp");
+		}
+			
+			
 		if(delname.length() > 0) {
 			BookDAOimpl bd = new BookDAOimpl();
 			bd.deleteBook(delname.toLowerCase());
