@@ -10,9 +10,12 @@
 	<% String user = (String)session.getAttribute("libname");
 	out.print(user);
 	%>
-	<form action="bookdel" method="post">
-		<input type="submit" name="logout1" value="Log Out"/>
+	<form>
+	Enter name of book you would like to check in/out:<br/>
+	<input type="text" name="checkname"/>
+	<input type="submit" value="submit"/>
 	</form>
-	<a href="register.jsp">Add Librarians</a>
+	<a href="book.jsp">Add Books</a>
+	<a href="bookdel.jsp">Delete Books</a>
 </body>
 </html>

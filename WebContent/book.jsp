@@ -7,6 +7,9 @@
 <title>Book</title>
 </head>
 <body>
+<form action="bookdel" method="post">
+		<input type="submit" name="logout2" value="Log Out"/>
+	</form>
 	<%String user = request.getParameter("name");
 	out.print(user);
 	session.setAttribute("libname", user);
@@ -18,6 +21,6 @@
 	</form>
 	<br/>
 	<a href="bookdel.jsp">Delete Books</a>
-	
+	<a href="bookcheck.jsp">Check In/Out Books</a>
 </body>
 </html>

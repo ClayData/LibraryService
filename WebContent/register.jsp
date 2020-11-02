@@ -7,6 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%String user = request.getParameter("name");
+	out.print(user);
+	session.setAttribute("libname", user);
+	%>
 <form action="register" method="post">
 Enter Name:<input type="text" name="username"/><br><br>
 Enter Password:<input type="password" name="pass"/> <br><br>
